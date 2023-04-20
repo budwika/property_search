@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--meta tag use for responsive visible area of the web page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Property</title>
+    <!--link stylesheets and logo of the title to the page-->
+    <link rel = "stylesheet" href = "style.css">
+    <link rel = "icon" href = "img/common/title-icon.png" type="image/png">
+    <link rel="stylesheet" href="jquery-ui-1.13.2/jquery-ui.min.css">
+    <script src="jquery-ui-1.13.2/external/jquery/jquery.js"></script>
+    <script src="jquery-ui-1.13.2/jquery-ui.min.js"></script>
+
+
+    <script>
+        $(function () {
+            $("#type").selectmenu();
+
+            $("#dateadded").selectmenu();
+
+            $("#location").selectmenu();
+        });
+
+        $(function () {
+            $("#budget-range").slider({
+                range: true,
+                min: 30000,
+                max: 1000000,
+                step: 500,
+                values: [150000, 650000],
+                slide: function (event, ui) {
+                    $("#price").val("£" + ui.values[0] + " - £" + ui.values[1]);
+                },
+            });
+            $("#price").val(
+                "£" +
+                $("#budget-range").slider("values", 0) +
+                " - £" +
+                $("#budget-range").slider("values", 1)
+            );
+        });
+
+        $(function () {
+            $("#bedroom-range").slider({
+                range: true,
+                min: 1,
+                max: 5,
+                values: [2, 4],
+                slide: function (event, ui) {
+                    $("#rooms").val(ui.values[0] + " - " + ui.values[1]);
+                },
+            });
+            $("#rooms").val(
+                $("#bedroom-range").slider("values", 0) +
+                " - " +
+                $("#bedroom-range").slider("values", 1)
+            );
+        });
+
+        $(function(){
+            $("#datepicker").datepicker({
+                beforeShowDay: $.datepicker.noweekends
+            })
+            });
+
+    </script>
+
+</head>
+
+<body>
+    <header>
+        <h1>Blue State Realty</h1>
+    </header>
+    <section class="prop_home"> <!-- search and home buttons -->
+        <a href="main.html"><img src="img/common/title-icon.png" alt="home button logo"><p>Home</p></a>
+        <section class="nested_prop">
+            <a href="search.html"><img src="img/common/search-button.png" alt="search button image"><p>Search</p></a> 
+        </section>
+    </section>
+    <section style="overflow:auto";>
+        <section >
+            <h3 style="margin-left: 200px;">Wish List</h3>
+        <section id="favourites-holder">
+
+        </section>
+        </section>
+
+        <section class="searchform">
+
+            <h2>Buy and Rent Real State Properties</h2>
+           
+                <fieldset>
+                    <label for="type">Property Type</label>
+                    <select name="type" id="type">
+                        <option selected="selected" value="AnyType">AnyType</option>
+                        <option value="House">House</option>
+                        <option value="Flat">Flat</option>
+                    </select>
+
+                    <label for="dateadded">Added date</label>
+                    <select name="dateadded" id="dateadded">
+                        <option selected="selected" value="AnyDate">AnyDate</option>
+                        <option value="1">1 Month Ago</option>
+                        <option value="2">2 Month Ago</option>
+                        <option value="3">3 Months Ago</option>
+                    </select>
+
+                    <label for="location">Location</label>
+                    <select name="location" id="location">
+                        <option selected="selected">AnyLocation</option>
+                        <option value="Orpington">Orpington</option>
+                        <option value="London">London</option>
+                        <option value="Manchester">Manchester</option>
+                    </select>
+                </fieldset>
+    
+            <p>
+                <label for="price" class="room">
+                    Price range(min - max):
+                    <input type="text" id="price" readonly>
+                </label>
+            </p>
+            <section id="budget-range"></section>
+
+            <p>
+                <label for="rooms" class="room">
+                    Bedrooms(min - max):
+                    <input type="text" id="rooms" readonly>
+                </label>
+            </p>
+            <section id="bedroom-range"></section>
+
+            <section class="sfbuttons">
+                <input class="ui-button" id="search" type="button" value="Search">
+                <input class="ui-button" id="favourites" type="button" value="Favourites">
+                <input class="ui-button" id="clear-favourites" type="button" value="Clear Favourites">
+            </section>
+
+        </section>
+  
+    </section>
+
+    <section id="results-holder"></section>
+    
+    <script>
+      var data = {
+	"properties": [
+        {
+            "id":"prop1",
+			"type":"House",
+            "bedrooms":3,
+			"price":750000,
+			"tenure":"Freehold",
+			"description":"Attractive three bedroom semi-detached family home situated within 0.5 miles of Petts Wood station with fast trains to London and within easy walking distance of local shops, schools, bus routes and National Trust woodland. The property comprises; two receptions, fitted 18'9 x 10'1 kitchen/breakfast room and conservatory. The property also benefits from having a utility room and cloakroom. To the first floor there are three bedrooms and a family bathroom with separate WC. Additional features include double glazing, gas central heating and a well presented interior...",
+			"location":"Orpington",
+			"picture":"img/properties/prop1/prop1img1.jpeg",
+			"url":"properties/prop1.html",
+            "added": 1,
+        },
+		{
+            "id":"prop2",
+			"type":"Flat",
+            "bedrooms":2,
+			"price":399995,
+			"tenure":"Freehold",
+			"description":"Presented in excellent decorative order throughout is this two double bedroom, two bathroom, garden flat. <br>The modern fitted kitchen is open plan to the living room which boasts solid wooden floors and includes integrated appliances including a dishwasher & a washing machine. This large open plan benefits from bi folding doors onto a secluded private courtyard garden. Both bedrooms are double sized, and the family bathroom boasts a matching three piece suite a shower attachment over the bath. There is also a separate wet room. There are walnut doors throughout and wiring for Sky TV/aerial points in the living room/kitchen and both bedrooms.<br>This apartment being only five years old, is still under a 10 year building guarantee...",
+			"location":"Orpington",
+			"picture":"img/properties/prop2/prop2img1.jpeg",
+			"url":"properties/prop2.html",
+            "added": 2,
+        },
+
+        {
+            "id":"prop3",
+			"type":"Flat",
+            "bedrooms":3,
+			"price":250000,
+			"tenure":"Leasehold",
+			"description":"A wonderfully light and generous sized reception room enjoys spectacular direct river views with access to a large terrace via two floor to ceiling sliding doors. The separate dining room lies just behind the living room below two skylights with exceptional ceiling height and connects to a wide modern integrated kitchen. There are four bedrooms, two of which have direct river views with one having access to the main terrace. The main bedroom has it's own en-suite with a further family bathroom and a guest loo. The apartment is well presented throughout.",
+			"location":"London",
+			"picture":"img/properties/prop3/prop3img1.jpeg",
+			"url":"properties/prop3.html",
+            "added": 3,
+        },
+
+        {
+        "id":"prop4",
+			"type":"House",
+            "bedrooms":5,
+			"price":1000000,
+			"tenure":"Freehold",
+			"description":"An elegant stone-dressed, red-brick, five-storey grade II listed mansion house. Double-fronted Edwardian facade with arts & crafts style detailing and french-inspired fine iron railings. Home to politicians and celebrities.",
+			"location":"London",
+			"picture":"img/properties/prop4/prop4img1.jpeg",
+			"url":"properties/prop4.html",
+            "added": 2,
+        },
+
+        {
+            "id":"prop5",
+                "type":"Flat",
+                "bedrooms":4,
+                "price":800000,
+                "tenure":"Leasehold",
+                "description":"The Orchid Suite is a breathtaking property with endless uses from main residence, second home or corporate space which includes underfloor heating throughout, air conditioning and biometric finger print recognition entry. ",
+                "location":"Manchester",
+                "picture":"img/properties/prop5/prop5img1.jpeg",
+                "url":"properties/prop5.html",
+                "added": 3,
+            },
+
+            {
+                "id":"prop6",
+                    "type":"House",
+                    "bedrooms":2,
+                    "price":260000,
+                    "tenure":"Freehold",
+                    "description":" Found in a popular residential area within Truro City is this 2/3 bedroom property which benefits from a rather spacious long garden giving ample room for activities.The property itself has an entrance porch opening into the hallway which in turn leads to the kitchen/dining room, living room and generous size conservatory. On the first floor you will find the master bedroom, bedroom 2 which the current owners have sectionided into 2 separate bedrooms for their children, plus the family bathroom.",
+                    "location":"Manchester",
+                    "picture":"img/properties/prop6/prop6img1.jpeg",
+                    "url":"properties/prop6.html",
+                    "added": 1,
+            },
+
+            {
+                "id":"prop7",
+                    "type":"Flat",
+                    "bedrooms":2,
+                    "price":58750,
+                    "tenure":"Leasehold",
+                    "description":" Focused on supporting the UK's demographic and affordable living needs, and consistent with Legal & General's housing growth strategy, Legal & General Affordable Homes will lead the evolution of the affordable housing sector with an aim to become the leading private affordable housing provider in the UK. It forms a subsidiary of Legal & General Capital, which invests capital into sectors where there has been a shortage of investment and innovation, focusing on growth opportunities and scale ups.",
+                    "location":"Orpington",
+                    "picture":"img/properties/prop7/prop7img1.jpeg",
+                    "url":"properties/prop7.html",
+                    "added": 2
+            }
+]}
+
+    </script>
+    <script src = "search.js" ></script>
+    <footer>
+        <section class="footer-length">
+            <p>Download Now</p>
+            <h2>Blue State Realty</h2>
+        </section>
+        <hr>
+        <p class="copyright">Copyright © 2023 - Blue State Realty®. All rights reserved.</p>
+    </footer>
+    </body>
+    </html>
+    

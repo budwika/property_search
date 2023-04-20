@@ -1,0 +1,468 @@
+/* css styles for whole html files */
+* { 
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-sizing: border-box;
+    background-color:rgba(130, 152, 225, 0.041);
+}
+/*header styling*/
+header { 
+    text-align: center;
+    color: white;
+    background-color: rgb(6, 2, 81);
+    padding: 30px;
+}
+/*main class styling*/
+.main {
+    width: 100%;
+    height: 100%;
+}
+/* left side of the site styling*/
+.left {
+    width: 50%;
+    display: block;
+    float: left;
+    margin-left: 30px;
+}
+
+.left img {
+    width: 100%;
+}
+
+/*middle of the page styling*/
+.middle {
+    width: 44%;
+    display: block;
+    margin-left: 30px;
+    text-align: center;
+    float: left;
+    border-style: dashed;
+}
+
+.middle img {
+    width: 85%;
+    margin-top: 50px;
+
+}
+
+#parahdivision{
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: dashed;
+}
+
+#parahdivision p{
+    text-align: justify;
+}
+
+/*right side of the main page styling */
+.right {
+    width: 15%;
+    display: block;
+    margin-left: 30px;
+    text-align: center;
+    float: left;
+}
+
+.right img {
+    width: 150px;
+}
+
+.right a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: larger;
+}
+
+.right a:visited{
+    text-decoration: none;
+    color: black;
+}
+
+/*fotter styling*/
+footer {
+    background: rgb(6, 2, 81);
+    color: #8a8a8a;
+    font-size: 14px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    margin-top: 50px;
+}
+
+footer p {
+    color: #c3c1c1;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: medium;
+}
+
+
+footer h2 {
+    color: white;
+    margin-bottom: 20px;
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.footer-length {
+    min-width: 250px;
+    margin-bottom: 20px;
+    flex-basis: 30%;
+}
+
+
+
+footer hr {
+    border: none;
+    background: #b5b5b5;
+    height: 1px;
+    margin: auto;
+    width: 95%;
+    text-align: center;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 15px;
+}
+
+/*media quaries for the main page*/
+@media screen and (max-width:700px) {
+    .col2 h1 {
+        font-size: 50px;
+        line-height: 50px;
+}
+.left, .middle, .right, #results-holder{
+    width : 90%;
+}
+}
+
+/* main page css over */
+
+/*search page styling*/
+#favourites-holder{
+    width: 30%;
+    margin-left: 30px;
+    text-align: center;
+    border-color: aqua;
+    border-style: solid;
+    float: left;
+    height:500px;
+}
+
+/*search form styling*/
+.searchform{
+    width: 60%;
+    display: block;
+    margin-left: 30px;
+    float: left;
+}
+
+.searchform h2{
+    text-align: center;
+    margin-top: 15px;
+}
+
+fieldset{
+    margin: auto;
+    text-align: center;
+}
+
+label{
+    display: block;
+    margin: 20px 0 0 0;
+}
+
+/*price range bar styling*/
+#budget-range{
+    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    text-align: center;
+}
+.searchform p{
+    text-align: center;
+    margin: 20px;
+}
+
+/*bed room range bar styling*/
+#bedroom-range{
+    margin: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 60%;
+    text-align: center;
+}
+
+.sfbuttons{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.outputimage{
+    width: 450px;
+    height: auto;
+}
+
+#results-holder{
+text-align: center;
+}
+
+.result{
+    margin-top: 50px;
+    position: relative;
+    text-align: justify;
+    margin-left: 50px;
+}
+
+.result li{
+    list-style-type: none;
+}
+
+.paracontainer{
+    width: 450px;
+    float:left;
+}
+
+img {
+  vertical-align: middle;
+}
+
+/*medi queries for search page*/
+@media screen and (max-width:700px) {
+    .col2 h1 {
+        font-size: 50px;
+        line-height: 50px;
+}
+#favourites-holder, .searchform, .right , #results-holder{
+    width : 90%;
+}
+}
+/*end of the search page*/
+
+/*properties page styling*/
+.heading2{
+    text-align: center;
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+/*main container styling*/
+.property-middle{
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+.prop_home {
+    width: 100%;
+    overflow: hidden;
+}
+
+.prop_home img {
+    width: 150px;
+}
+
+.prop_home a {
+    text-decoration: none;
+    font-weight: bold;
+    font-size: larger;
+    display: block;
+    text-align: center;
+    float: left;
+}
+
+.prop_home a:visited{
+    text-decoration: none;
+    color: black;
+}
+.nested_prop{
+    float: right;
+}
+
+
+/*<!-- reference : https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp --> */
+.nested
+/* Position the image container*/
+.container {
+  text-align: center;
+  position: relative;
+  
+}
+
+/* Hide the images by default */
+.mySlides {
+  display: none;
+}
+
+
+.cursor {
+  cursor: pointer;
+}
+
+
+
+/* Position the "next button" to the right */
+.next {
+  right: 0;
+  border-radius: 3px 0 0 3px;
+}
+
+.prev:hover,
+.next:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+.numbertext {
+  color: #f2f2f2;
+  font-size: 12px;
+  padding: 8px 12px;
+  position: absolute;
+  top: 0;
+}
+
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/* eight columns side by side */
+.column {
+  float: left;
+  width: 12.45%;
+}
+
+.container {
+    position: relative;
+  }
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 12.45%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+/* Add a transparency effect for thumnbail images */
+.demo {
+  opacity: 0.6;
+}
+
+.active, .demo:hover {
+  opacity: 1;
+}
+
+/* data of the page styling */
+.data{
+    text-align: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+/* buttons styling*/
+.sfbuttons{
+    margin-bottom: 30px;
+}
+
+/* accordion styling */
+#tabs{
+    width: 45%;
+    border-style: dashed;
+    margin: auto;
+}
+
+.map{
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* media queries for property pages */
+@media screen and (max-width:700px) {
+    .col2 h1 {
+        font-size: 50px;
+        line-height: 50px;
+}
+.prop_home img {
+    width: 50px;
+}
+.property-middle, #accordion{
+    width : 90%;
+}
+}

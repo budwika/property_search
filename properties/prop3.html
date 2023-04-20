@@ -1,0 +1,208 @@
+<!DOCTYPE html> <!-- initializing the doc type -->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--meta tag use for responsive visible area of the web page-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Property 3</title>
+    <!--link stylesheets and logo of the title to the page-->
+    <link rel = "stylesheet" href = "../style.css">
+    <link rel = "icon" href = "../img/common/title-icon.png" type="image/png">
+    <!-- link j query script files to html files -->
+    <link rel="stylesheet" href="../jquery-ui-1.13.2/jquery-ui.min.css">
+    <script src="../jquery-ui-1.13.2/external/jquery/jquery.js"></script>
+    <script src="../jquery-ui-1.13.2/jquery-ui.min.js"></script>
+
+    <!-- inside file script statements for function of accordion -->
+    <script>
+        $(function () {
+            var animation = {
+                easing: "easeInOutQuart",
+                duration: 1000
+            };
+            $("#tabs").tabs({
+                animate : animation,
+                collapsible : true
+            });
+        });
+    </script>
+</head>
+
+<body> <!-- start of the body tag -->
+    <header style="margin-bottom:0;">
+        <h1>Blue State Realty</h1> <!-- heading -->
+    </header>
+    <section class="prop_home"> <!-- search and home buttons -->
+        <a href="../main.html"><img src="../img/common/title-icon.png" alt="home button logo"><p>Home</p></a>
+        <section class="nested_prop">
+            <a href="../search.html"><img src="..//img/common/search-button.png" alt="search button image"><p>Search</p></a> 
+        </section>
+    </section>
+    <!-- reference : https://www.w3schools.com/howto/howto_js_slideshow_gallery.asp -->
+    <h2 class="heading2">Flat with 3 Bedrooms</h2> <!-- sub heading of the page -->
+        <section class="property-middle"> <!-- container to show gallery and the viewed image -->
+            <section class="container"> 
+                <section class="mySlides">
+                  <section class="numbertext">1 / 8</section>
+                  <img src="../img/properties/prop3/prop3img1.jpeg" alt="img1" style="width:100%">
+                </section>
+              
+                <section class="mySlides"> <!-- slides for the pictures -->
+                  <section class="numbertext">2 / 8</section>
+                  <img src="../img/properties/prop3/prop3(2).jpeg" alt="img2" style="width:100%">
+                </section>
+              
+                <section class="mySlides">
+                  <section class="numbertext">3 / 8</section>
+                  <img src="../img/properties/prop3/prop3(3).jpeg" alt="img3" style="width:100%">
+                </section>
+                  
+                <section class="mySlides">
+                  <section class="numbertext">4 / 8</section>
+                  <img src="../img/properties/prop3/prop3(4).jpeg" alt="img4" style="width:100%">
+                </section>
+              
+                <section class="mySlides">
+                  <section class="numbertext">5 / 8</section>
+                  <img src="../img/properties/prop3/prop3(5).jpeg" alt="5" style="width:100%">
+                </section>
+                  
+                <section class="mySlides">
+                  <section class="numbertext">6 / 8</section>
+                  <img src="../img/properties/prop3/prop3(6).jpeg" alt="6" style="width:100%">
+                </section>
+
+                <section class="mySlides">
+                    <section class="numbertext">7 / 8</section>
+                    <img src="../img/properties/prop3/prop3(7).jpeg" alt="img7" style="width:100%">
+                </section>
+                
+                <section class="mySlides">
+                    <section class="numbertext">8 / 8</section>
+                    <img src="../img/properties/prop3/prop3(8).jpeg" alt="img8" style="width:100%">
+                </section>
+
+                <!-- buttons for navigating photos -->
+                <a class="prev" onclick="plusSlides(-1)">❮</a>
+                <a class="next" onclick="plusSlides(1)">❯</a>
+              
+                <section class="row"> <!-- showing thumbnalis of the picture -->
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3img1.jpeg" style="width:100%" onclick="currentSlide(1)" alt="img1">
+                  </section>
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(2).jpeg" style="width:100%" onclick="currentSlide(2)" alt="img2">
+                  </section>
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(3).jpeg" style="width:100%" onclick="currentSlide(3)" alt="img3">
+                  </section>
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(4).jpeg" style="width:100%" onclick="currentSlide(4)" alt="img4">
+                  </section>
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(5).jpeg" style="width:100%" onclick="currentSlide(5)" alt="img5">
+                  </section>    
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(6).jpeg" style="width:100%" onclick="currentSlide(6)" alt="img6">
+                  </section>
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(7).jpeg" style="width:100%" onclick="currentSlide(7)" alt="img7">
+                  </section>
+                  <section class="column">
+                    <img class="demo cursor" src="../img/properties/prop3/prop3(8).jpeg" style="width:100%" onclick="currentSlide(8)" alt="img8">
+                  </section>
+                </section>
+              </section>
+        </section>
+
+
+                <section class="data"> <!-- show data of the property -->
+                    <h3>Price : <b>£250000</b></h3>
+                    <p>Tenure : <b>Leasehold</b></p>
+                    <p>Address :<b>London</b></p>
+                    <p>Added : <b>12 th November 2022</b></p>
+                </section>
+
+                <section class="sfbuttons"> <!-- add and remove favourite button -->
+                    <p id=""><input class="ui-button" id="add-fav" type="button" value="Add to Favourites">
+                    <input class="ui-button" id="remove-fav" type="button" value="Remove from Favourites"></p>
+                </section>
+            
+
+            <section id="tabs">
+                <ul>
+                    <li><a href="#tab1">Description</a></li>
+                    <li><a href="#tab2">Location</a></li>
+                    <li><a href="#tab3">Floor Plan</a></li>
+                </ul>
+                
+                <section id="tab1">
+                    <p>A wonderfully light and generous sized reception room enjoys spectacular direct river views with access to a large terrace via two floor 
+                        to ceiling sliding doors. The separate dining room lies just behind the living room below two skylights with exceptional ceiling height and 
+                        connects to a wide modern integrated kitchen. 
+                        
+                        <br><br>
+                        There are four bedrooms, two of which have direct river views with one having access to the main terrace. The main bedroom has it's own en-
+                        suite with a further family bathroom and a guest loo. The apartment is well presented throughout.
+
+                    </p>
+                </section>
+                <section id="tab2">
+                    <section class="map">
+                            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2490.726318250448!2d0.0999042!3d51.371327799999996!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8ac9930446b37%3A0x68790365ed11b073!2s25%20Hillcrest%20Rd%2C%20Orpington%20BR6%209AN%2C%20UK!5e0!3m2!1sen!2slk!4v1673556717397!5m2!1sen!2slk" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </section>
+                </section>
+                <section id="tab3">
+                    <section class="map">
+                            <img src="../plan.png" alt="plan" width="500px">
+                    </section>
+                </section>
+            </section>
+
+            
+<!-- script for image buttons -->
+    <script> 
+
+        let slideIndex = 1;
+        showSlides(slideIndex);
+
+        function plusSlides(n) {
+        showSlides(slideIndex += n);
+        }
+
+        function currentSlide(n) {
+        showSlides(slideIndex = n);
+        }
+
+        function showSlides(n) {
+        let i;
+        let slides = document.getElementsByClassName("mySlides");
+        let dots = document.getElementsByClassName("demo");
+        let captionText = document.getElementById("caption");
+        if (n > slides.length) {slideIndex = 1}
+        if (n < 1) {slideIndex = slides.length}
+        for (i = 0; i < slides.length; i++) {
+            slides[i].style.display = "none";
+        }
+        for (i = 0; i < dots.length; i++) {
+            dots[i].className = dots[i].className.replace(" active", "");
+        }
+        slides[slideIndex-1].style.display = "block";
+        dots[slideIndex-1].className += " active";
+        captionText.innerHTML = dots[slideIndex-1].alt;
+        }
+
+
+    </script>
+<script src="../search.js"></script>
+    <footer> <!-- footter -->
+        <section class="footer-length">
+            <p>Download Now</p>
+            <h2>Blue State Realty</h2>
+        </section>
+        <hr>
+        <p class="copyright">Copyright © 2023 - Blue State Realty®. All rights reserved.</p>
+    </footer>
+    </body>
+    </html>

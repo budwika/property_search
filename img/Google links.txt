@@ -1,0 +1,112 @@
+property 1 - https://goo.gl/maps/ZnrV3GzLdcGBETz18
+property 2 - https://goo.gl/maps/V7azAi1tn5wCdCtv5
+property 3 - https://www.google.com/maps/place/A202,+London,+UK/@51.4886097,-0.1640874,13z/data=!3m1!4b1!4m5!3m4!1s0x4876049d67874d49:0x239b5df450eb8649!8m2!3d51.4885615!4d-0.129068
+property 4 - https://www.google.com/maps/@51.5083134,-0.1519077,13z?hl=en-US
+property 5 - https://goo.gl/maps/9dckHDaPc1mWXc9WA
+property 6 - https://goo.gl/maps/uQvLa28En8En4AzU9
+property 7 - https://goo.gl/maps/TapG19neofVN8Dh67
+
+
+
+//add properties to the favourite list
+  $("#add-to-favourites").on("click",function(){
+    try {
+      $(this).attr('disabled', true);
+
+      var addPropertiesID = $(this).closest("p").attr("id");
+      var FavouriteProperties=JSON.parse(localStorage.getItem("favProperties"));
+          if(FavouriteProperties == null) {
+            FavouriteProperties = [];
+      }
+      if(FavouriteProperties != null) {
+        for ( var j = 0; j < FavouriteProperties.length; j++) {
+
+            if ( addPropertiesID == FavouriteProperties[j]) {
+                alert("This item is already in your favourites list.");
+                FavouriteProperties = [];
+              }
+          }
+      }
+      FavouriteProperties.push(addPropertiesID);
+      localStorage.setItem("favProperties", JSON.stringify(FavouriteProperties));
+
+    }
+    catch(e){
+      if (e==QUOTA_EXCEEDED_ERR) {
+        console.log("Error: The local storage limit has been exceeded.");
+      }
+
+      else {
+        console.log("Error: Saving to local storage.");
+      }
+    }
+
+  });
+
+  //remove properties from the favourite list
+  $("#remove-from-favourites").on("click",function(){
+    $(this).attr('disabled', true);
+
+            var removePropertiesID = $(this).closest("p").attr("id");
+
+            FavouriteProperties=JSON.parse(localStorage.getItem("favProperties"));
+
+            if(FavouriteProperties != null) {
+              for ( var j = 0; j < FavouriteProperties.length; j++) {
+
+                  if ( removePropertiesID == FavouriteProperties[j]) {
+
+                      alert("This item has been removed.");
+
+                      delete FavouriteProperties[j];
+
+                      localStorage.setItem("favProperties", JSON.stringify(FavouriteProperties));
+
+                      FavouriteProperties[j] = [];
+                    }
+                }
+            }
+
+            if(FavouriteProperties == null) {
+              alert("You don't have any favorites.");
+            }
+  });
+
+  //view the favourite list
+  $( ".view-favourites-btn" ).on("click", function(){
+
+    console.log("Data restoring from local storage from arrays");
+
+    FavouriteProperties=JSON.parse(localStorage.getItem("favProperties"));
+
+    var output = "<ul>";
+
+    if (FavouriteProperties != null) {
+
+        for (var i = 0; i < data.properties.length; i++) {
+            for (j = 0; j < FavouriteProperties.length; j++) {
+
+                if (data.properties[i].id == FavouriteProperties[j]) {
+
+                    output+="<h4><li>" + data.properties[i].type +"<br>"+ "</li></h4>"+ "<h5><li>"+ "£ "+ data.properties[i].price + "<br><br>" + data.properties[i].location + "</h5></li>" +
+                    "<img src=" + data.properties[i].picture + " width = 300 height = 150>" +"<li><button><a href=' " +data.properties[i].url + "'>Visit page</a></button></li>";
+                }
+            }
+        }
+    }
+    output+="</ul>";
+
+    document.getElementById( "favourites-holder" ).innerHTML = output;
+
+});
+//clear the favourite list
+$( ".clear-favourites-btn" ).on("click", function(){
+
+  $("#favourites-holder").remove();
+
+  FavouriteShoes=JSON.parse(localStorage.getItem("favProperties"));
+
+  localStorage.clear();
+
+});
+
